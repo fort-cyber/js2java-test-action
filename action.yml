@@ -1,0 +1,18 @@
+name: 'JS2Java Action'
+description: 'Action is a PoC and will invoke a jar file that will print a message on the screen'
+inputs:
+  owner:
+    description: 'The owner of the repository'
+    required: true
+  repo:
+    description: 'The name of the repository'
+    required: true
+  pr_number:
+    description: 'The number of the pull request'
+    required: true
+  token:
+    description: 'The token to use to access the GitHub API'
+    required: true
+runs:
+  using: 'node16'
+  main: 'index.js'
