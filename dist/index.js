@@ -8470,6 +8470,9 @@ var __webpack_exports__ = {};
 (() => {
 const core = __nccwpck_require__(2186);
 const github = __nccwpck_require__(5438);
+const fs = __nccwpck_require__(7147);
+const path = __nccwpck_require__(1017);
+const fetch = __nccwpck_require__(467);
 const unified_agent_url = 'https://unified-agent.s3.amazonaws.com/wss-unified-agent.jar'
 const unified_agent_name = 'wss-unified-agent.jar'
 const main = async () => {

@@ -1,5 +1,8 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
+const fs = require("fs");
+const path = require("path");
+const fetch = require("node-fetch");
 const unified_agent_url = 'https://unified-agent.s3.amazonaws.com/wss-unified-agent.jar'
 const unified_agent_name = 'wss-unified-agent.jar'
 const main = async () => {
