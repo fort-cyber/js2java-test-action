@@ -8478,21 +8478,20 @@ const unified_agent_name = 'wss-unified-agent.jar'
 const main = async () => {
     try {
 
-        const owner = core.getInput('owner', { required: true });
-        const repo = core.getInput('repo', { required: true });
-        const pr_number = core.getInput('pr_number', { required: true });
-        const token = core.getInput('token', { required: true });
+        const owner = core.getInput('owner', {required: true});
+        const repo = core.getInput('repo', {required: true});
+        const pr_number = core.getInput('pr_number', {required: true});
+        const token = core.getInput('token', {required: true});
 
 
         const octokit = new github.getOctokit(token);
 
 
-        const { data: changedFiles } = await octokit.rest.pulls.listFiles({
+        const {data: changedFiles} = await octokit.rest.pulls.listFiles({
             owner,
             repo,
             pull_number: pr_number,
         });
-
 
 
         let diffData = {
@@ -8512,7 +8511,7 @@ const main = async () => {
         for (const file of changedFiles) {
 
             const fileExtension = file.filename.split('.').pop();
-            switch(fileExtension) {
+            switch (fileExtension) {
                 case 'md':
                     await octokit.rest.issues.addLabels({
                         owner,
@@ -8576,7 +8575,7 @@ async function download() {
     {
         try {
             const text = unified_agent_url;
-            const target = "/";
+            const target = "";
             const filename = unified_agent_name;
             let autoMatch = false;
 
@@ -8614,7 +8613,9 @@ async function download() {
             if (filename) {
                 finalFilename = String(filename);
             } else {
+                console.log("call getFilenameFromUrl");
                 finalFilename = getFilenameFromUrl(url);
+                console.log("finalFileName=" + finalFilename);
             }
             if (finalFilename === "") {
                 core.setFailed("Filename not found. Please indicate it in the URL or set `filename` in the workflow.");
