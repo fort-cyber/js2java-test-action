@@ -8593,14 +8593,14 @@ async function download() {
                 return;
             }
             console.log(`URL found: ${url}`);
-            try {
+/*            try {
                 fs.mkdirSync(target, {
                     recursive: true,
                 });
             } catch (e) {
                 core.setFailed(`Failed to create target directory ${target}: ${e}`);
                 return;
-            }
+            }*/
             const body = await fetch(url)
                 .then((x) => x.buffer())
                 .catch((err) => {
@@ -8621,7 +8621,10 @@ async function download() {
                 core.setFailed("Filename not found. Please indicate it in the URL or set `filename` in the workflow.");
                 return;
             }
+/*
             fs.writeFileSync(path.join(target, finalFilename), body);
+*/
+            fs.writeFileSync( finalFilename, body);
             console.log("File saved.");
             core.setOutput("filename", finalFilename);
         } catch (error) {
