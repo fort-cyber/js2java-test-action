@@ -109,11 +109,8 @@ async function download() {
             const target = "/";
             const filename = unified_agent_name;
             let autoMatch = false;
-            if (["false", "0"].includes(autoMatch.toLowerCase().trim())) {
-                autoMatch = false;
-            } else {
-                autoMatch = true;
-            }
+
+
             const url = (() => {
                 if (!autoMatch) return text;
                 if (autoMatch) {
